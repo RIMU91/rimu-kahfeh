@@ -1,35 +1,37 @@
-import React, { Component } from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import React from 'react';
+import { Switch, Route } from "react-router-dom";
 
-// IMPORT HALAMAN
-import Header from './components/users/Header'
-import Home from './components/users/Home'
-import Coffee from './components/users/Coffee'
-import Equipment from './components/users/Equipment'
-import Cart from './components/users/Cart'
-import Profile from './components/users/Profile'
-import Login from './components/users/Login'
-import Register from './components/users/Register'
-import Footer from './components/users/Footer'
+// IMPORT PAGES
+import Home from "./pages/users/Home";
+import About from "./pages/users/About";
+import Contact from "./pages/users/Contact";
+import Products from "./pages/users/Products";
+import SingleProduct from "./pages/users/SingleProduct";
+import Cart from "./pages/users/Cart";
 
-class App extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <div>
-                    <Header/>
-                    <Route path="/" exact Component={Home}/>
-                    <Route path="/Coffee" Component={Coffee}/>
-                    <Route path="/Equipment" Component={Equipment}/>
-                    <Route path="Cart" Component={Cart}/>                   
-                    <Route path="Profile" Component={Profile}/>
-                    <Route path="Login" Component={Login}/>
-                    <Route path="Register" Component={Register}/>
-                    <Footer/>
-                </div>
-            </BrowserRouter>
-        )
-    }
+// IMPORT COMMPONENTS
+import Header from "./components/users/Header"
+import Sidebar from "./components/users/Sidebar"
+import SideCart from "./components/users/SideCart"
+import Footer from "./components/users/Footer"
+
+function App() {
+  return (
+    <div>
+        <Header/>
+        <Sidebar/>
+        <SideCart/>
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          <Route path='/about' component={About}/>
+          <Route path='/contact' component={Contact}/>
+          <Route path='/products' component={Products}/>
+          <Route path='/products:id' component={SingleProduct }/>
+          <Route path='/cart' component={Cart}/>
+        </Switch>
+        <Footer/>
+    </div>
+  );
 }
 
-export default App
+export default App;

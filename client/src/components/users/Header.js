@@ -1,16 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-// ICON
-import {Basket} from 'grommet-icons'
-
-class Header extends Component {
-    render() {
-        return (
-            <div>
-                <Basket></Basket>
-            </div>
-        )
-    }
+export default function Header() {
+    return (
+        <div>
+            untuk Header
+        </div>
+    )
 }
-
-export default Header

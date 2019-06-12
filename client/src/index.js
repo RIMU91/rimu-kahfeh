@@ -1,8 +1,12 @@
-// import libary yang dibutuhkan
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 
-// panggil halaman yang dibutuhkan
-import App from './App'
+import App from './App';
 
-ReactDOM.render(<App/> , document.getElementById('root'));
+
+ReactDOM.render(
+        <Router>
+            <App />
+        </Router>, document.getElementById('root'));
+
