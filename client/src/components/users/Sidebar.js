@@ -6,7 +6,7 @@ import { ProductConsumer } from '../../context/context';
 
 const BurgerWrapper = styled.nav`
     position            : fixed;
-    top                 : 61px;
+    top                 : auto/*20px*/;
     left                : 0;
     width               : 100%;
     height              : 100%;
@@ -14,7 +14,7 @@ const BurgerWrapper = styled.nav`
     z-index             : 1;
     border-right        : 4px var(--primaryColor) solid;
     transition          : var(--mainTransition);
-    transform : ${props => (props.show ? "translateX(0)" : "translateX(-100%)")};
+    transform           : ${props => (props.show ? "translateX(0)" : "translateX(-100%)")};
 
     ul{
         list-style-type : none;

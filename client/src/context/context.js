@@ -17,38 +17,29 @@ class ProductProvider extends Component{
         links       : linkData
     }
 
-//SIDEBAR HANDLE 
-handleSideBar = () => {
-    this.setState({ sidebarOpen : !this.state.sidebarOpen })
-}
-
-//SIDECART HANDLE
-handleCart = () => {
-    this.setState(
-        { cartOpen : !this.state.cartOpen }
-    )
-}
-
-// Buka Side Cart
-openCart = () => {
-    this.setState(
-        { cartOpen : true }
-    )
-}
-
-//  Tutup Side Cart
-closeCart = () => {
-    this.setState(
-        { cartOpen : false }
-    )
-}
+  // handle sidebar
+  handleSidebar = () => {
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
+  };
+  // handle cart
+  handleCart = () => {
+    this.setState({ cartOpen: !this.state.cartOpen });
+  };
+  // close cart
+  closeCart = () => {
+    this.setState({ cartOpen: false });
+  };
+  // open cart
+  openCart = () => {
+    this.setState({ cartOpen: true });
+  };
 
     render(){
         return(
             <ProductContext.Provider 
             value={{
                     ...this.state,
-                    handleSideBar : this.handleSideBar,
+                    handleSidebar : this.handleSidebar,
                     handleCart    : this.handleCart,
                     openCart      : this.openCart,
                     closeCart     : this.closeCart

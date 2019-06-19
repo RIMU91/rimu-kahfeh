@@ -10,6 +10,7 @@ import Contact from "./pages/users/Contact";
 import Products from "./pages/users/Products";
 import SingleProduct from "./pages/users/SingleProduct";
 import Cart from "./pages/users/Cart";
+import Default from "./pages/users/Default"
 
 // IMPORT COMMPONENTS
 import Header from "./components/users/Header"
@@ -30,6 +31,7 @@ function App() {
           <Route path='/products' component={Products}/>
           <Route path='/products:id' component={SingleProduct }/>
           <Route path='/cart' component={Cart}/>
+          <Route component = {Default}/>
         </Switch>
         <Footer/>
     </div>

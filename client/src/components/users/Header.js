@@ -1,14 +1,14 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 // untuk style CSS
 import styled from 'styled-components'
-
 // IMPORT CONTEXT
 import { ProductConsumer } from '../../context/context';
-
 // IMPORT LOGO DAN ICON
 import logo from '../../images/logo.png'
 import { FaBars , FaCartPlus } from 'react-icons/fa';
+import { FiShoppingBag } from "react-icons/fi";
 
 const HeaderWrapper = styled.header`
     position         : -webkit-sticky;
@@ -18,10 +18,12 @@ const HeaderWrapper = styled.header`
     display          : table;
     /* padding          : 1rem 1.5rem; */
     background       : var(--mainGrey);
-    border-bottom    : var(--primaryColor) solid 3px;
     border-top       : var(--mainBackground) solid 20px;
     border-right     : var(--mainBackground) solid 20px;
     border-left      : var(--mainBackground) solid 20px;
+    padding-bottom   : 20px;
+    z-index          : 1;
+
 
     .nav-center{
         display             : flex; /* agar jadi one line*/
@@ -39,6 +41,7 @@ const HeaderWrapper = styled.header`
     .nav-icon{
         font-size           : xx-large;
         cursor              : pointer;
+        /* margin-left         : 3.5rem;         */
     }
 
     .nav-cart{
@@ -50,15 +53,19 @@ const HeaderWrapper = styled.header`
         color               : var(--mainWhite);
         font-size           : medium ;
         position            : absolute;
-        top                 : -12px;
-        right               : -12px;
-        padding             : 0 5px; /* mengatur padding top dan right */
+        top                 : -8px;
+        right               : -8px;
+        padding             : 0 5px; /* mengatur padding left dan right */
         border-radius       : 100%;
     }
 
     .logo{
         height              : 9rem;
         width               : 9rem;
+    }
+
+    label{
+        margin-right        : 3.5rem;
     }
 `;
 
@@ -69,13 +76,19 @@ export default function Header() {
             const { handleSidebar, cartItems, handleCart } = value
             return <HeaderWrapper>
                 <div className="nav-center">
-                    {/* untuk tampilan menu sidebar */}
-                    <FaBars className="nav-icon" onClick={handleSidebar}/>
-                    {/* untuk tampilan logo */}
-                    <img className="logo" src={logo} alt="rimu kahfeh"/>
+                    {/* <div className="nav-left">
+                        <button>SHOP</button> */}
+                        {/* untuk tampilan menu sidebar */}
+                        <FaBars className="nav-icon" onClick={handleSidebar}/>
+                    {/* </div> */}
+                    {/* untuk tampilan logo link ke Home */}
+                    <Link to="/">
+                        <img className="logo" src={logo} alt="rimu kahfeh"/>
+                    </Link>
                     <div className="nav-cart">
+                        {/* <label>ACCOUNT</label> */}
                         {/* untuk tampilan cart sidebar */}
-                        <FaCartPlus className="nav-icon" onClick={handleCart}/>
+                        <FiShoppingBag className="nav-icon" onClick={handleCart}/>
                         {/* untuk tampilan tambah angka cart */}
                         <div className="cart-items">{cartItems}</div>
                     </div>
